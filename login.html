@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- html for login page --> 
+<html>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <title>Login Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+  <body background="https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a8fcff3f457ee34c77fac59710270bc3&auto=format&fit=crop&w=1352&q=80">
+  <h1 align="center" style="color:aliceblue;">Welcome</h1>
+  <div class="d-lg-flex justify-content-center align-items-center container">
+   <div class="panel panel-default rounded border border-secondary" style="background-color:white">
+    <div class="panel-body">
+        <div class="form-horizontal"> <!--old form tag -->
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Email:</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="email" placeholder="Enter email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Password:</label>
+            <div class="col-sm-10"> 
+              <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+            </div>
+          </div>
+          <div class="form-group"> 
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label><input type="checkbox"> Remember me</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group"> 
+            <div class="col-sm-offset-2 col-sm-10">
+              <button onclick="loginUser(); changePage();" type="button" class="btn btn-primary">Login</button>
+              <button onclick="createUser()" type="button" class="btn btn-primary">Sign up</button>
+            </div>
+          </div>
+        </div> <!--old form tag-->
+    </div>
+  </div> 
+</div>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB4MI6i5R99fooOynd7MbPpalfFAv4UZiA",
+    authDomain: "login-991c3.firebaseapp.com",
+    databaseURL: "https://login-991c3.firebaseio.com",
+    projectId: "login-991c3",
+    storageBucket: "login-991c3.appspot.com",
+    messagingSenderId: "228675139507"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="login.js"></script>
+</body>
+</html>
