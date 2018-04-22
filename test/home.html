@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -11,137 +11,213 @@
 
     <!-- Custom styles for this template -->
     <link href="home.css" rel="stylesheet">
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <header>
-      <div class="collapse bg-dark" id="navbarHeader">
+<header>
+    <div class="collapse bg-dark" id="navbarHeader">
         <div class="container">
-          <div class="row">
-            <div class="col-sm-8 col-md-7 py-4">
-              <h4 class="text-white">About</h4>
-              <p class="text-muted">This can be the description</p>
+            <div class="row">
+                <div class="col-sm-8 col-md-7 py-4">
+                    <h4 class="text-white">About</h4>
+                    <p class="text-muted">This can be the description</p>
+                </div>
+                <div class="col-sm-3 offset-md-1 py-4">
+                    <h4 class="text-white">Contact</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Email us</a></li>
+                        <li><a href="#" class="text-white">Profile</a></li>
+
+                        <!--here is sign out hyperlink-->
+                        <li><a onclick="signOutUser()" href="index.html" class="text-white">Sign out</a></li>
+
+
+                    </ul>
+                </div>
             </div>
-            <div class="col-sm-3 offset-md-1 py-4">
-              <h4 class="text-white">Contact</h4>
-              <ul class="list-unstyled">
-                <li><a href="#" class="text-white">Email us</a></li>
-                <li><a href="#" class="text-white">Profile</a></li>
-
-                <!--here is sign out hyperlink-->
-                <li><a onclick="signOutUser()" href="index.html" class="text-white">Sign out</a></li>
-
-
-              </ul>
-            </div>
-          </div>
         </div>
-      </div>
-      <div class="navbar navbar-dark bg-dark box-shadow">
+    </div>
+    <div class="navbar navbar-dark bg-dark box-shadow">
         <div class="container d-flex justify-content-between">
-          <a href="#" class="navbar-brand d-flex align-items-center">
-            <strong>Find a ride!</strong>
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+            <a href="#" class="navbar-brand d-flex align-items-center">
+                <strong>Find a ride!</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
-      </div>
-    </header>
+    </div>
+</header>
 
-    <main role="main">
+<main role="main">
 
-      <section class="jumbotron text-center">
+    <section class="jumbotron text-center">
         <div class="container">
-          <h1 class="jumbotron-heading">Find a ride easily</h1>
-          <p class="lead text-muted">You can easily find a ride with our app anywhere.</p>
-          <p>
+            <h1 class="jumbotron-heading">Find a ride easily</h1>
+            <p class="lead text-muted">You can easily find a ride with our app anywhere.</p>
 
             <!--here are two buttons-->
-            <a href="#" class="btn btn-primary my-2">Offer a ride</a>
-            <a href="#" class="btn btn-primary my-2">Find a ride</a>
 
-          </p>
+            <!--↓↓↓ here is the form after you press offer a ride-->
+
+            <a onclick="document.getElementById('form01').style.display='block'" class="btn btn-primary my-2">Offer a
+                ride</a>
+            <div id="form01" class="modal">
+                <span onclick="document.getElementById('form01').style.display='none'" class="close"
+                      title="Close Modal">&times;</span>
+                <form class="modal-content" action="/action_page.php">  <!-- ←←← page after you submit the form -->
+                    <div class="container">
+                        <p>Please fill in this form to offer a ride.</p>
+                        <hr>
+                        <label for="name01"><b>Name</b></label>
+                        <input type="text" placeholder="Enter your name" id="name01" required>
+
+                        <label for="phone01"><b>Phone number</b></label>
+                        <input type="text" placeholder="Enter your phone number" id="phone01" required>
+
+                        <label for="departure"><b>Departure</b></label>
+                        <input type="text" placeholder="Departure" id="departure" required>
+
+                        <label for="destination"><b>Destination</b></label>
+                        <input type="text" placeholder="Destination" id="destination" required>
+
+                        <label for="seats"><b>Number of seats</b></label>
+                        <input type="text" placeholder="Seats offered" id="seats" required>
+
+                        <div class="clearfix">
+                            <button type="button" onclick="document.getElementById('form01').style.display='none'"
+                                    class="cancelbtn">Cancel
+                            </button>
+                            <button type="submit" class="signupbtn">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!--↓↓↓ here is the form after you press offer a ride-->
+
+            <a onclick="document.getElementById('form02').style.display='block'" class="btn btn-primary my-2">Fina a
+                ride</a>
+
+            <div id="form02" class="modal">
+                <span onclick="document.getElementById('form02').style.display='none'" class="close"
+                      title="Close Modal">&times;</span>
+                <form class="modal-content" action="/action_page.php">  <!-- ←←← page after you submit the form -->
+                    <div class="container">
+                        <p>Please fill in this form to offer a ride.</p>
+                        <hr>
+                        <label for="name"><b>Name</b></label>
+                        <input type="text" placeholder="Enter your name" id="name" required>
+
+                        <label for="phone"><b>Phone number</b></label>
+                        <input type="text" placeholder="Enter your phone number" id="phone" required>
+
+                        <label for="from"><b>Departure</b></label>
+                        <input type="text" placeholder="Departure" id="from" required>
+
+                        <label for="to"><b>Destination</b></label>
+                        <input type="text" placeholder="Destination" id="to" required>
+
+                        <label for="seatsneeded"><b>Number of seats</b></label>
+                        <input type="text" placeholder="Seats needed" id="seatsneeded" required>
+
+                        <div class="clearfix">
+                            <button type="button" onclick="document.getElementById('form02').style.display='none'"
+                                    class="cancelbtn">Cancel
+                            </button>
+                            <button type="submit" class="signupbtn">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
         </div>
-      </section>
+    </section>
 
-      <div class="album py-5 bg-light">
+    <div class="album py-5 bg-light">
         <div class="container">
 
-          <div class="row">
+            <div class="row">
 
-            <!--from here is each div element-->
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Driver's location map preview" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">This part can be a brief description of destination and time to go.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Detail</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Confirm</button>
+                <!--from here is each div element-->
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top"
+                             data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Driver's location map preview"
+                             alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">This part can be a brief description of destination and time to go.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Confirm</button>
+                                </div>
+                                <small class="text-muted">9 mins</small>
+                            </div>
+                        </div>
                     </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
                 </div>
-              </div>
-            </div>
-            <!--to here-->
+                <!--to here-->
 
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Passenger's location map preview" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">This part can be a brief description of destination and time to go.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Detail</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Confirm</button>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top"
+                             data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Passenger's location map preview"
+                             alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">This part can be a brief description of destination and time to go.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Confirm</button>
+                                </div>
+                                <small class="text-muted">9 mins</small>
+                            </div>
+                        </div>
                     </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
 
-    </main>
+</main>
 
-    <footer class="text-muted">
-      <div class="container">
+<footer class="text-muted">
+    <div class="container">
         <p class="float-right">
-          <a href="#">Back to top</a>
+            <a href="#">Back to top</a>
         </p>
-      </div>
-    </footer>
+    </div>
+</footer>
 
 
-    <!--change the code below to yours if you want to test it-->
-    <!--change the code below to yours if you want to test it-->
-    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyBjLeSBWMOdyZGt7cRpzpeFpUubJdFkvlA",
-            authDomain: "dudululududulu.firebaseapp.com",
-            databaseURL: "https://dudululududulu.firebaseio.com",
-            projectId: "dudululududulu",
-            storageBucket: "dudululududulu.appspot.com",
-            messagingSenderId: "922313932402"
-        };
-        firebase.initializeApp(config);
-    </script>
+<!--change the code below to yours if you want to test it-->
+<!--change the code below to yours if you want to test it-->
+<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBjLeSBWMOdyZGt7cRpzpeFpUubJdFkvlA",
+        authDomain: "dudululududulu.firebaseapp.com",
+        databaseURL: "https://dudululududulu.firebaseio.com",
+        projectId: "dudululududulu",
+        storageBucket: "dudululududulu.appspot.com",
+        messagingSenderId: "922313932402"
+    };
+    firebase.initializeApp(config);
+</script>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="assets/js/vendor/popper.min.js"></script>
-    <script src="dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/vendor/holder.min.js"></script>
-  </body>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="assets/js/vendor/popper.min.js"></script>
+<script src="dist/js/bootstrap.min.js"></script>
+<script src="assets/js/vendor/holder.min.js"></script>
+
+
+</body>
 </html>
