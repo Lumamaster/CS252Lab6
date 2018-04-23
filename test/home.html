@@ -69,7 +69,7 @@
                       title="Close Modal">&times;</span>
                 <form class="modal-content" action="/action_page.php">  <!-- ←←← page after you submit the form -->
                     <div class="container">
-                        <p>Please fill in this form to offer a ride.</p>
+                        <p>Please fill out this form to offer a ride.</p>
                         <hr>
                         <label for="name01"><b>Name</b></label>
                         <input type="text" placeholder="Enter your name" id="name01" required>
@@ -83,8 +83,29 @@
                         <label for="destination"><b>Destination</b></label>
                         <input type="text" placeholder="Destination" id="destination" required>
 
-                        <label for="seats"><b>Number of seats</b></label>
-                        <input type="text" placeholder="Seats offered" id="seats" required>
+                        <label for="date"><b>Date</b></label>
+                        <input type="date" id="date" required>
+
+                        <label for="time"><b>Time of Departure</b></label>
+                        <input type="time" id="time" required>
+
+                       <!-- old number of seats text field 
+                           <label for="seats"><b>Number of seats</b></label>
+                        <input type="text" placeholder="Seats offered" id="seats" required> -->
+
+                       <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Number of seats
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="#">1</a>
+                              <a class="dropdown-item" href="#">2</a>
+                              <a class="dropdown-item" href="#">3</a>
+                              <a class="dropdown-item" href="#">4</a>
+                              <a class="dropdown-item" href="#">5</a>
+                              <a class="dropdown-item" href="#">6</a>
+                            </div>
+                          </div> 
 
                         <div class="clearfix">
                             <button type="button" onclick="document.getElementById('form01').style.display='none'"
@@ -96,9 +117,9 @@
                 </form>
             </div>
 
-            <!--↓↓↓ here is the form after you press offer a ride-->
+            <!--↓↓↓ here is the form after you press find a ride (update once database is set up)-->
 
-            <a onclick="document.getElementById('form02').style.display='block'" class="btn btn-primary my-2">Fina a
+            <a onclick="document.getElementById('form02').style.display='block'" class="btn btn-primary my-2">Find a
                 ride</a>
 
             <div id="form02" class="modal">
@@ -106,7 +127,7 @@
                       title="Close Modal">&times;</span>
                 <form class="modal-content" action="/action_page.php">  <!-- ←←← page after you submit the form -->
                     <div class="container">
-                        <p>Please fill in this form to offer a ride.</p>
+                        <p>Please fill out this form to find a ride.</p>
                         <hr>
                         <label for="name"><b>Name</b></label>
                         <input type="text" placeholder="Enter your name" id="name" required>
@@ -120,8 +141,11 @@
                         <label for="to"><b>Destination</b></label>
                         <input type="text" placeholder="Destination" id="to" required>
 
-                        <label for="seatsneeded"><b>Number of seats</b></label>
-                        <input type="text" placeholder="Seats needed" id="seatsneeded" required>
+                        <label for="date"><b>Date</b></label>
+                        <input type="date" id="date" required>
+
+                        <label for="time"><b>Time of Departure</b></label>
+                        <input type="time" id="time" required>
 
                         <div class="clearfix">
                             <button type="button" onclick="document.getElementById('form02').style.display='none'"
@@ -193,7 +217,6 @@
 </footer>
 
 
-<!--change the code below to yours if you want to test it-->
 <!--change the code below to yours if you want to test it-->
 <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
 <script>
