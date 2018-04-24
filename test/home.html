@@ -11,6 +11,7 @@
 
     <!-- Custom styles for this template -->
     <link href="home.css" rel="stylesheet">
+    <script type="text/javascript" src="home.js"></script>
 </head>
 
 <body>
@@ -67,33 +68,33 @@
             <div id="form01" class="modal">
                 <span onclick="document.getElementById('form01').style.display='none'" class="close"
                       title="Close Modal">&times;</span>
-                <form class="modal-content" action="/action_page.php">  <!-- ←←← page after you submit the form -->
+                <form class="modal-content">  <!-- ←←← page after you submit the form (removed = /action-page.php)-->
                     <div class="container">
                         <p>Please fill out this form to offer a ride.</p>
                         <hr>
-                        <label for="name01"><b>Name</b></label>
+                        <label for="name01"><b>Name:</b></label>
                         <input type="text" placeholder="Enter your name" id="name01" required>
 
-                        <label for="phone01"><b>Phone number</b></label>
+                        <label for="phone01"><b>Phone number:</b></label>
                         <input type="text" placeholder="Enter your phone number" id="phone01" required>
 
-                        <label for="departure"><b>Departure</b></label>
+                        <label for="departure"><b>Departure:</b></label>
                         <input type="text" placeholder="Departure" id="departure" required>
 
-                        <label for="destination"><b>Destination</b></label>
+                        <label for="destination"><b>Destination:</b></label>
                         <input type="text" placeholder="Destination" id="destination" required>
 
-                        <label for="date"><b>Date</b></label>
+                        <label for="date"><b>Date:</b></label>
                         <input type="date" id="date" required>
 
-                        <label for="time"><b>Time of Departure</b></label>
+                        <label for="time"><b>Time of Departure:</b></label>
                         <input type="time" id="time" required>
 
                        <!-- old number of seats text field 
                            <label for="seats"><b>Number of seats</b></label>
                         <input type="text" placeholder="Seats offered" id="seats" required> -->
 
-                       <div class="dropdown">
+                        <!--  old bootstrap dropdown <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               Number of seats
                             </button>
@@ -105,13 +106,23 @@
                               <a class="dropdown-item" href="#">5</a>
                               <a class="dropdown-item" href="#">6</a>
                             </div>
-                          </div> 
+                          </div>  -->
+
+                          <label for="noSeats"><b>Number of Seats:</b></label>
+                          <select id="noSeats" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                          </select>
 
                         <div class="clearfix">
                             <button type="button" onclick="document.getElementById('form01').style.display='none'"
                                     class="cancelbtn">Cancel
                             </button>
-                            <button type="submit" class="signupbtn">Submit</button>
+                            <button onclick="submitRide()" type="button" class="signupbtn" >Submit</button>
                         </div>
                     </div>
                 </form>
@@ -142,16 +153,16 @@
                         <input type="text" placeholder="Destination" id="to" required>
 
                         <label for="date"><b>Date</b></label>
-                        <input type="date" id="date" required>
+                        <input type="date" id="datePass" required>
 
                         <label for="time"><b>Time of Departure</b></label>
-                        <input type="time" id="time" required>
+                        <input type="time" id="timePass" required>
 
                         <div class="clearfix">
                             <button type="button" onclick="document.getElementById('form02').style.display='none'"
                                     class="cancelbtn">Cancel
                             </button>
-                            <button type="submit" class="signupbtn">Submit</button>
+                            <button onclick="signUpRide()" type="button" class="signupbtn">Submit</button>
                         </div>
                     </div>
                 </form>
