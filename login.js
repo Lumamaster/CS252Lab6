@@ -43,3 +43,22 @@ function signOutUser() {
   });
 
 }
+
+
+function submit() {
+  var depart = document.getElementById("dep").value;
+  var destin = document.getElementById("dest").value;
+  var date = document.getElementById("day").value;
+
+  var myDB = firebase.database().ref();
+  var rides = myDB.child("rides");
+
+  rides.push({
+    "departure" : depart,
+    "destination" : destin,
+    "date" : date
+  });
+
+ // window.alert("Success! Created from " + depart + " to " + destin + " on " + date + " .");  
+
+}
