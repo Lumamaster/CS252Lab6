@@ -62,3 +62,20 @@ function submit() {
  // window.alert("Success! Created from " + depart + " to " + destin + " on " + date + " .");  
 
 }
+
+function search() {
+  var departure = document.getElementById("dep").value;
+  var destin = document.getElementById("dest").value;
+  var date = document.getElementById("day").value;
+
+  var results = [];
+  var myDB = firebase.database().ref();
+  var rides = myDB.child("rides");
+  rides.orderByChild("departure").equalTo("Chicago").on("value", function(snapshot){
+        snapshot.forEach(childSnapshot => {
+          console.log(childSnapshot.key);
+          results.push(childSnapshot.key);
+        });
+  });
+  console.log(results);
+}
