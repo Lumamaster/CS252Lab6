@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Request a ride</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="home.css" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+    <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-md-7 py-4">
+                    <h4 class="text-white">About</h4>
+                    <p class="text-muted">This can be the description</p>
+                </div>
+                <div class="col-sm-3 offset-md-1 py-4">
+                    <h4 class="text-white">Contact</h4>
+                    <ul class="list-unstyled">
+                        <li>
+                            <div class="popup" onclick="myFunction()">Email us<span class="popuptext" id="myPopup"><a
+                                    href="mailto:(email)">
+        Jenna</a>
+        <a href="mailto:(email)">
+        Kevin</a>
+        <a href="mailto:(email)">
+        Jin</a></span>
+                            </div>
+                            </a></li>
+
+                        <li><a href="#" onclick="document.getElementById('form03').style.display='block'"
+                               class="text-white">Profile</a></li>
+                        <div id="form03" class="modal">
+                <span onclick="document.getElementById('form03').style.display='none'" class="close"
+                      title="Close Modal">&times;</span>
+                            <form class="modal-content">  <!-- ←←← page after you submit the form -->
+                                <div class="container">
+                                    <p>Please fill out this form to update your profile.</p>
+                                    <hr>
+
+                                    <label for="name"><b>Full name</b></label>
+                                    <input type="text" placeholder="Please enter your full name" id="name" required>
+
+                                    <label for="email"><b>Email</b></label>
+                                    <input type="text" placeholder="Please enter your email address" id="email"
+                                           required>
+
+                                    <label for="phone"><b>Phone number</b></label>
+                                    <input type="text" placeholder="Please enter your phone number" id="phone" required>
+
+                                    <div class="clearfix">
+                                        <button type="button"
+                                                onclick="document.getElementById('form03').style.display='none'"
+                                                class="cancelbtn">Cancel
+                                        </button>
+                                        <button id="profileSubmit" type="button"
+                                                onclick="updateProfile(); document.getElementById('form03').style.display='none'"
+                                                class="signupbtn">Submit
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+
+                        <!--here is sign out hyperlink-->
+                        <li><a onclick="signOutUser()" href="index.html" class="text-white">Sign out</a></li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+                <strong>Find a ride!</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main role="main">
+
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Find a ride easily</h1>
+            <p class="lead text-muted">You can easily find a ride with our app anywhere.</p>
+
+            <!--here are two buttons-->
+
+            <!--↓↓↓ here is the form after you press offer a ride-->
+
+            <a onclick="document.getElementById('form01').style.display='block'" class="btn btn-primary my-2">Offer a
+                ride</a>
+            <div id="form01" class="modal">
+                <span onclick="document.getElementById('form01').style.display='none'" class="close"
+                      title="Close Modal">&times;</span>
+                <form class="modal-content">  <!-- ←←← page after you submit the form -->
+                    <div class="container">
+                        <p>Please fill out this form to offer a ride.</p>
+                        <hr>
+
+                        <label for="from01"><b>Departure</b></label>
+                        <input type="text" placeholder="Departure" id="from01" required>
+
+                        <label for="to01"><b>Destination</b></label>
+                        <input type="text" placeholder="Destination" id="to01" required>
+
+                        <label for="date01"><b>Date</b></label>
+                        <input type="date" id="date01" required>
+
+                        <label for="time01"><b>Time of Departure</b></label>
+                        <input type="time" id="time01" required>
+
+                        <label for="noSeats"><b>Number of Seats:</b></label>
+                        <select id="noSeats" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+
+                        <div class="clearfix">
+                            <button type="button" onclick="document.getElementById('form01').style.display='none'"
+                                    class="cancelbtn">Cancel
+                            </button>
+                            <button id="offerSubmit" type="button"
+                                    onclick="document.getElementById('form01').style.display='none'"
+                                    class="signupbtn">Submit
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!--↓↓↓ here is the form after you press find a ride (update once database is set up)-->
+
+            <a onclick="document.getElementById('form02').style.display='block'" class="btn btn-primary my-2">Request a
+                ride</a>
+
+            <div id="form02" class="modal">
+                <span onclick="document.getElementById('form02').style.display='none'" class="close"
+                      title="Close Modal">&times;</span>
+                <form class="modal-content">  <!-- ←←← page after you submit the form -->
+                    <div class="container">
+                        <p>Please fill out this form to find a ride.</p>
+                        <hr>
+
+                        <label for="from02"><b>Departure</b></label>
+                        <input type="text" placeholder="Departure" id="from02" required>
+
+                        <label for="to02"><b>Destination</b></label>
+                        <input type="text" placeholder="Destination" id="to02" required>
+
+                        <label for="date02"><b>Date</b></label>
+                        <input type="date" id="date02" required>
+
+                        <label for="time02"><b>Time of Departure</b></label>
+                        <input type="time" id="time02" required>
+
+                        <div class="clearfix">
+                            <button type="button" onclick="document.getElementById('form02').style.display='none'"
+                                    class="cancelbtn">Cancel
+                            </button>
+                            <button id="requestSubmit" type="button"
+                                    onclick="document.getElementById('form02').style.display='none'"
+                                    class="signupbtn">Submit
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+            <div id="page-info" class="row">
+
+                <!--from here is each div element-->
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top"
+                             data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Map preview"
+                             alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">This part can be a brief description of destination and time to go.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Confirm</button>
+                                </div>
+                                <small class="text-muted">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--to here-->
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<footer class="text-muted">
+    <div class="container">
+        <p class="float-right">
+            <a href="#">Back to top</a>
+        </p>
+    </div>
+</footer>
+
+
+<!--change the code below to yours if you want to test it-->
+
+<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDGB2g3XsSGlrMWfsb5LYRrWwcUqh7lgRI",
+        authDomain: "findarideapp.firebaseapp.com",
+        databaseURL: "https://findarideapp.firebaseio.com",
+        projectId: "findarideapp",
+        storageBucket: "",
+        messagingSenderId: "540805054758"
+    };
+    firebase.initializeApp(config);
+</script>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="assets/js/vendor/popper.min.js"></script>
+<script src="dist/js/bootstrap.min.js"></script>
+<script src="assets/js/vendor/holder.min.js"></script>
+
+<script type="text/javascript" src="submit.js"></script>
+<script type="text/javascript" src="profile.js"></script>
+<script> // When the user clicks on div, open the popup
+function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+} </script>
+
+
+</body>
+</html>
