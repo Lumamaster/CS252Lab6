@@ -12,7 +12,7 @@ function submitRide() {
     var myDB = firebase.database().ref();
     var rides = myDB.child("rides");
     rides.push({
-      //"driver": user.uid,
+      "driver": user.uid,
        "departure": departure,
        "destination": destination,
        "date": date,
@@ -61,13 +61,13 @@ function sign() {
   var ind = selected.selectedIndex;
   console.log(ridesByID[ind]);  
   //add user to array of passengers for that respective ride
-  //var user = firebase.auth().currentUser;
-  //var userName = user.name;
+  var user = firebase.auth().currentUser;
+  var userID = user.uid;
   var myDB = firebase.database().ref();
   var passengers = myDB.child("rides/"+ridesByID[ind]+"/passengers");
   //console.log("rides/"+ridesByID[ind]+"/passengers");
   passengers.update({
-    "Mary" : true
+    userID : true
   });
-  console.log(passengers);
+  //TODO: decrement # of seats
 }
