@@ -45,7 +45,7 @@ function signUpRide() {
         ridesByID[id] = data.key;                         //maps ride key to ridesByID array
         entry.appendChild(document.createTextNode("time: " + data.val().time)); // puts text in entry
         list.appendChild(entry);                          // adds entry to list
-        console.log(entry.getAttribute("id"));
+        console.log("id for " + entry.value + " is " + entry.getAttribute("id"));            // prints out correct id
       });
    }); 
 }
@@ -58,5 +58,6 @@ function hiding() {
 function sign() {
   //sign up user for specified ride
   var selected = document.getElementById("match-list").value;
-  //find a way to obtain ride id based off match list 
+  //how to access ride id from selected entry????  
+  console.log(selected.id);               // this prints out 'undefined' -> selected does not exist (?)
 }
