@@ -11,7 +11,7 @@ function submitRide() {
     var myDB = firebase.database().ref();
     var rides = myDB.child("rides");
     rides.push({
-     // "driver": user.uid,
+      //"driver": user.uid,
        "departure": departure,
        "destination": destination,
        "date": date,
@@ -31,7 +31,9 @@ function signUpRide() {
    //find entries with matching departure, destination, and date
    var searcher = dep+dest+da;
    var database = firebase.database().ref("rides/");
-   database.orderByChild("searchee").equalTo(searcher).on("child_added", function(data) {
-      window.alert("Ride found: " + data.val().searchee);
+   database.orderByChild("searchee").equalTo(searcher).on("value", function(snapshot) {
+      snapshot.forEach(function(data) {
+        console.log("Ride found: leaving" + data.val().departure + " going to " + data.val().destination + " at " + data.val().time);
+      })
    }); 
 }
