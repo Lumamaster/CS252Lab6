@@ -1,4 +1,5 @@
 var num = 0;
+var ridesByID = {};
 
 function submitRide() {
     var departure = document.getElementById("departure").value;
@@ -31,13 +32,20 @@ function signUpRide() {
    //find entries with matching departure, destination, and date
    var searcher = dep+dest+da;
    var database = firebase.database().ref("rides/");
+   var i = 0;
+   
    database.orderByChild("searchee").equalTo(searcher).on("value", function(snapshot) {
       snapshot.forEach(function(data) {
         console.log("Ride found: leaving" + data.val().departure + " going to " + data.val().destination + " at " + data.val().time);
-        var list = document.getElementById("match-list")
-        var entry = document.createElement("option");
-        entry.appendChild(document.createTextNode("time: " + data.val().time));
-        list.appendChild(entry);
+        var id = "ride_no_" + i;                          // sets id to ride_no_#
+        var list = document.getElementById("match-list"); // list of corresponding rides
+        var entry = document.createElement("option");     // creates element for that option
+        entry.setAttribute("id", id);                     // id corresponds with entry now
+        i++;
+        ridesByID[id] = data.key;                         //maps ride key to ridesByID array
+        entry.appendChild(document.createTextNode("time: " + data.val().time)); // puts text in entry
+        list.appendChild(entry);                          // adds entry to list
+        console.log(entry.getAttribute("id"));
       });
    }); 
 }
@@ -50,6 +58,5 @@ function hiding() {
 function sign() {
   //sign up user for specified ride
   var selected = document.getElementById("match-list").value;
-  console.log(selected);
   //find a way to obtain ride id based off match list 
 }
