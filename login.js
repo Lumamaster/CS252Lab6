@@ -60,7 +60,6 @@ function submit() {
   });
 
  // window.alert("Success! Created from " + depart + " to " + destin + " on " + date + " .");  
-
 }
 
 function search() {

@@ -11,16 +11,16 @@ function submitRide() {
     var myDB = firebase.database().ref();
     var rides = myDB.child("rides");
     rides.push({
-      "driver": user.uid,
+     // "driver": user.uid,
        "departure": departure,
        "destination": destination,
        "date": date,
        "time": time,
-       "numberSeats": noSeats
-     });
-       
-     window.alert("Ride created leaving from " + departure + " going to " + destination + " on " + date + " at " + time + " for " + noSeats + " passengers.");
+       "numberSeats": noSeats,
+       "searchee": departure+destination+date
+     });  
 
+     window.alert("Success!");
 }
 
 function signUpRide() {
@@ -29,9 +29,9 @@ function signUpRide() {
     var da = document.getElementById("datePass").value;
     
    //find entries with matching departure, destination, and date
-
-  var database = firebase.database().ref("rides/");
-   database.orderByChild("departure").equalTo(dep).on("child_added", function(data) {
-      window.alert("Equal to: " + data.val().departure);
+   var searcher = dep+dest+da;
+   var database = firebase.database().ref("rides/");
+   database.orderByChild("searchee").equalTo(searcher).on("child_added", function(data) {
+      window.alert("Ride found: " + data.val().searchee);
    }); 
 }
