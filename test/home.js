@@ -1,6 +1,17 @@
 var num = 0;
 var ridesByID = {};
 
+function signOutUser() {
+
+  firebase.auth().signOut().then(function() {
+    // Sign-out successful.
+    //window.location.href="index.html";
+  }).catch(function(error) {
+    // An error happened.
+    window.alert("Error: " + error.message);
+  });
+
+}
 function submitRide() {
     var departure = document.getElementById("departure").value;
     var destination = document.getElementById("destination").value;
