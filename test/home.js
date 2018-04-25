@@ -37,15 +37,14 @@ function signUpRide() {
    database.orderByChild("searchee").equalTo(searcher).on("value", function(snapshot) {
       snapshot.forEach(function(data) {
         console.log("Ride found: leaving" + data.val().departure + " going to " + data.val().destination + " at " + data.val().time);
-        var id = "ride_no_" + i;                          // sets id to ride_no_#
+        //var id = "ride_no_" + i;                          // sets id to ride_no_#
         var list = document.getElementById("match-list"); // list of corresponding rides
         var entry = document.createElement("option");     // creates element for that option
-        entry.setAttribute("id", id);                     // id corresponds with entry now
+        //entry.setAttribute("id", id);                     // id corresponds with entry now
+        ridesByID[i] = data.key;                         //maps ride key to ridesByID array
         i++;
-        ridesByID[id] = data.key;                         //maps ride key to ridesByID array
         entry.appendChild(document.createTextNode("time: " + data.val().time)); // puts text in entry
         list.appendChild(entry);                          // adds entry to list
-        console.log("id for " + entry.value + " is " + entry.getAttribute("id"));            // prints out correct id
       });
    }); 
 }
@@ -57,7 +56,18 @@ function hiding() {
 
 function sign() {
   //sign up user for specified ride
-  var selected = document.getElementById("match-list").value;
-  //how to access ride id from selected entry????  
-  console.log(selected.id);               // this prints out 'undefined' -> selected does not exist (?)
+  var selected = document.getElementById("match-list");
+  //grabs ride key from selected item
+  var ind = selected.selectedIndex;
+  console.log(ridesByID[ind]);  
+  //add user to array of passengers for that respective ride
+  //var user = firebase.auth().currentUser;
+  //var userName = user.name;
+  var myDB = firebase.database().ref();
+  var passengers = myDB.child("rides/"+ridesByID[ind]+"/passengers");
+  //console.log("rides/"+ridesByID[ind]+"/passengers");
+  passengers.update({
+    "Mary" : true
+  });
+  console.log(passengers);
 }
