@@ -49,5 +49,7 @@ function hiding() {
 
 function sign() {
   //sign up user for specified ride
-
+  var selected = document.getElementById("match-list").value;
+  console.log(selected);
+  //find a way to obtain ride id based off match list 
 }
