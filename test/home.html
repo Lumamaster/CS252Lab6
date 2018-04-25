@@ -118,7 +118,7 @@
             <div id="form02" class="modal">
                 <span onclick="document.getElementById('form02').style.display='none'" class="close"
                       title="Close Modal">&times;</span>
-                <form class="modal-content">  <!-- ←←← page after you submit the form -->
+                <form class="modal-content unhidden" id="find-form">  <!-- ←←← page after you submit the form -->
                     <div class="container">
                         <p>Please fill out this form to find a ride.</p>
                         <hr>
@@ -136,8 +136,15 @@
                             <button type="button" onclick="document.getElementById('form02').style.display='none'"
                                     class="cancelbtn">Cancel
                             </button>
-                            <button onclick="signUpRide()" type="button" class="signupbtn">Submit</button>
+                            <button onclick="signUpRide(); hiding();" type="button" class="signupbtn">Submit</button>
                         </div>
+                    </div> <!--end of container -->
+                </form>
+                <form class="modal-content", style="display:none;", id="match-form">
+                    <div class="container">
+                        <p>Rides Found:</p>
+                        <hr>
+
                     </div>
                 </form>
             </div>

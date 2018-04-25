@@ -37,3 +37,8 @@ function signUpRide() {
       })
    }); 
 }
+
+function hiding() {
+ document.getElementById("find-form").style.display="none";
+ document.getElementById("match-form").style.display="block";
+}
