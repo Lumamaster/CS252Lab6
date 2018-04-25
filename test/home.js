@@ -34,11 +34,20 @@ function signUpRide() {
    database.orderByChild("searchee").equalTo(searcher).on("value", function(snapshot) {
       snapshot.forEach(function(data) {
         console.log("Ride found: leaving" + data.val().departure + " going to " + data.val().destination + " at " + data.val().time);
-      })
+        var list = document.getElementById("match-list")
+        var entry = document.createElement("option");
+        entry.appendChild(document.createTextNode("time: " + data.val().time));
+        list.appendChild(entry);
+      });
    }); 
 }
 
 function hiding() {
  document.getElementById("find-form").style.display="none";
  document.getElementById("match-form").style.display="block";
+}
+
+function sign() {
+  //sign up user for specified ride
+
 }
