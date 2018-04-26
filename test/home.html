@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-     <meta http-equiv="cache-control" content="no-cache"/>
+     <!-- <meta http-equiv="cache-control" content="no-cache"/> -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="caricon.svg">
@@ -45,6 +45,8 @@
                 })
 
                 $("#ride-sign-up-btn").click(function() {
+                    $("#match-form").hide();
+                    $("#find-form").show();
                     $("#form02").hide();
                 })
         });

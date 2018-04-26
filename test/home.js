@@ -23,7 +23,7 @@ function submitRide() {
     var myDB = firebase.database().ref();
     var rides = myDB.child("rides");
     rides.push({
-      "driver": user.uid,
+      "driver": user.email,
        "departure": departure,
        "destination": destination,
        "date": date,
@@ -110,9 +110,9 @@ function sign() {
 
   var ref2 = myDB.child("rides/"+ridesByID[ind]);
   ref.once("value", function(data){
-    cardBody.innerHTML = "Driver: " + data.val().driver+"\n" + 
-                          "Starting from: " + data.val().departure+"\n" + 
-                          "Going to: " + data.val().destination+"\n";
+    cardBody.innerHTML = "Driver: " + data.val().driver+"<br>" + 
+                          "Starting from: " + data.val().departure+"<br>" + 
+                          "Going to: " + data.val().destination+"<br>";
   });
 
   card.appendChild(cardBody);
