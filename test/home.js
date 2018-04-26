@@ -48,8 +48,16 @@ function signUpRide() {
    database.orderByChild("searchee").equalTo(searcher).on("value", function(snapshot) {
     var list = document.getElementById("match-list"); // list of corresponding rides
     list.innerHTML = "";
+    if (!snapshot.exists()) {
+      var noneExist = document.createElement("option");
+      //noneExist.setAttribute("disabled");
+      noneExist.disabled = true;
+      noneExist.appendChild(document.createTextNode("Sorry! No rides have been found."));
+      list.appendChild(noneExist);
+    }
+    else {
     snapshot.forEach(function(data) {
-       //var id = "ride_no_" + i;                          // sets id to ride_no_#
+       //var id = "ride_no_" + i;                          // sets id to ride_no_#i
         if (data.val().numberSeats > 0) {
           console.log("Ride found: leaving" + data.val().departure + " going to " + data.val().destination + " at " + data.val().time);
           var entry = document.createElement("option");     // creates element for that option
@@ -60,7 +68,8 @@ function signUpRide() {
             list.appendChild(entry);                          // adds entry to list
         }
       });
-   }); 
+    }
+   });
 }
 
 function hiding() {
@@ -80,16 +89,12 @@ function sign() {
   console.log(userID);
   var myDB = firebase.database().ref();
   var passengers = myDB.child("rides/"+ridesByID[ind]+"/passengers");
-  //var noSeats = myDB.child("rides/"+ridesByID[ind]+"/numberSeats").val();
-  //noSeats = noSeats-1;
   var dec;
   var ref = myDB.child("rides/"+ridesByID[ind]);
   ref.once("value", function(data){
     var num = data.val().numberSeats;
     console.log("old noSeats: "+num);
     dec = num-1;
-    //myDB.child("rides/"+ridesByID[ind]+"/numberSeats").update(dec);
-    //data.val().numberSeats = dec;
     ref.update({numberSeats: dec});
   });
   passengers.update({
