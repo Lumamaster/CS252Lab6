@@ -96,5 +96,29 @@ function sign() {
     [userID] : true
   });
   console.log("added to passenger list");
+
+  var storage = document.createElement("div");
+  storage.className = "col-md-4";
+  var card = document.createElement("div");
+  card.className = "card mb-4 box-shadow";
+  var cardHeader = document.createElement("div");
+  cardHeader.className = "card-header";
+  cardHeader.innerHTML = "Ride";
+  card.appendChild(cardHeader);
+  var cardBody = document.createElement("div");
+  cardBody.className = "card-body";
+
+  var ref2 = myDB.child("rides/"+ridesByID[ind]);
+  ref.once("value", function(data){
+    cardBody.innerHTML = "Driver: " + data.val().driver+"\n" + 
+                          "Starting from: " + data.val().departure+"\n" + 
+                          "Going to: " + data.val().destination+"\n";
+  });
+
+  card.appendChild(cardBody);
+  //add card to user homepage
+  var cont = document.getElementById("card-container");
+  cont.appendChild(card);
+
   window.alert("Sucess! You have been added to this ride.");
 }
