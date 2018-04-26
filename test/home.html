@@ -14,6 +14,7 @@
     <link href="home.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="home.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
     <script>
         $(document).ready(function(){
                 $("#my-cancel-btn").click(function(){ 
@@ -61,13 +62,13 @@
             <div class="row">
                 <div class="col-sm-8 col-md-7 py-4">
                     <h4 class="text-white">About</h4>
-                    <p class="text-muted">Created for CS252 at Purdue University</p>
+                    <p class="text-muted">Created to make carpooling easier for Purdue students.</p>
                 </div>
                 <div class="col-sm-3 offset-md-1 py-4">
-                    <h4 class="text-white">Contact</h4>
+                    <!-- <h4 class="text-white">Contact</h4>
                     <ul class="list-unstyled">
                         <li><a href="#" class="text-white">Email us</a></li>
-                        <li><a href="#" class="text-white">Profile</a></li>
+                        <li><a href="#" class="text-white">Profile</a></li> -->
 
                         <!--here is sign out hyperlink-->
                         <li><a onclick="signOutUser()" href="index.html" class="text-white">Sign out</a></li>
@@ -115,12 +116,7 @@
                             a carpool going from Chicago to Purdue would have the departure as "Chicago, IL" and the destination as "Purdue".
                         </p>
                         <hr>
-                       <!-- <label for="name01"><b>Name:</b></label>
-                        <input type="text" placeholder="Enter your name" id="name01" required>
-
-                        <label for="phone01"><b>Phone number:</b></label>
-                        <input type="text" placeholder="Enter your phone number" id="phone01" required> -->
-
+                    
                         <label for="departure"><b>Departure:</b></label>
                         <input type="text" placeholder="Departure" id="departure" required>
 
@@ -151,7 +147,7 @@
                 </form>
             </div>
 
-            <!--↓↓↓ here is the form after you press find a ride (update once database is set up)-->
+            <!--↓↓↓ here is the form after you press find a ride -->
 
             <a class="btn btn-primary my-2" id="find-a-ride-btn">Find a
                 ride</a>
@@ -204,46 +200,8 @@
 
     <div class="album py-5 bg-light" >
         <div class="container">
-
             <div class="row"id="card-container">
                 
-                <!--from here is each div element-->
-              <!--  <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top"
-                             data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Driver's location map preview"
-                             alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">This part can be a brief description of destination and time to go.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-
-                                    detail button deleted 
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Confirm</button>
-                                </div>
-                                <small class="text-muted">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div> -
-                to here-->
-
-              <!--  <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top"
-                             data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Passenger's location map preview"
-                             alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">This part can be a brief description of destination and time to go.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Confirm</button>
-                                </div>
-                                <small class="text-muted">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
 
             </div>
         </div>

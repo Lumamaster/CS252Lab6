@@ -1,5 +1,6 @@
 var num = 0;
 var ridesByID = {};
+var card_index = 0;
 
 function signOutUser() {
 
@@ -30,8 +31,7 @@ function submitRide() {
        "time": time,
        "numberSeats": noSeats,
        "searchee": departure+destination+date
-     });  
-
+     }); 
      window.alert("Success! This ride has been created.");
 }
 
@@ -102,13 +102,14 @@ function sign() {
   });
   console.log("added to passenger list");
 
+ //create card to store item
  var storage = document.createElement("div");
   storage.className = "col-md-4";
   var card = document.createElement("div");
   card.className = "card mb-4 box-shadow";
   var cardHeader = document.createElement("div");
   cardHeader.className = "card-header";
-  cardHeader.innerHTML = "Ride";
+  cardHeader.innerHTML = "New ride added:";
   card.appendChild(cardHeader);
   var cardBody = document.createElement("div");
   cardBody.className = "card-body";
@@ -117,13 +118,23 @@ function sign() {
   ref.once("value", function(data){
     cardBody.innerHTML = "Driver: " + data.val().driver+"<br>" + 
                           "Starting from: " + data.val().departure+"<br>" + 
-                          "Going to: " + data.val().destination+"<br>";
+                          "Going to: " + data.val().destination+"<br>" +
+                          "Date: " + data.val().date+"<br>" +
+                          "Time: " + data.val().time+"<br>";
   });
 
-  card.appendChild(cardBody);
-  //add card to user homepage
+  card.appendChild(cardBody); 
+  //add card to database
   var cont = document.getElementById("card-container");
   cont.appendChild(card); 
+  //<div class="btn-group">
 
-  window.alert("Sucess! You have been added to this ride.");
+  //  detail button deleted 
+  // <button type="button" class="btn btn-sm btn-outline-secondary">Confirm</button>
+  // </div>
+  //var cardList = myDB.child("cards/"+userID);
+  
+  //console.log(card);
+
+  window.alert("Sucess! You have been added to this ride. Please email the driver to let them know.");
 }
