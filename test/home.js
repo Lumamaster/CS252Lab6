@@ -97,7 +97,7 @@ function sign() {
   });
   console.log("added to passenger list");
 
-  var storage = document.createElement("div");
+ var storage = document.createElement("div");
   storage.className = "col-md-4";
   var card = document.createElement("div");
   card.className = "card mb-4 box-shadow";
@@ -118,7 +118,7 @@ function sign() {
   card.appendChild(cardBody);
   //add card to user homepage
   var cont = document.getElementById("card-container");
-  cont.appendChild(card);
+  cont.appendChild(card); 
 
   window.alert("Sucess! You have been added to this ride.");
 }
