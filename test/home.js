@@ -32,7 +32,7 @@ function submitRide() {
        "searchee": departure+destination+date
      });  
 
-     window.alert("Success!");
+     window.alert("Success! This ride has been created.");
 }
 
 function signUpRide() {
@@ -96,5 +96,5 @@ function sign() {
     [userID] : true
   });
   console.log("added to passenger list");
-  //TODO: decrement # of seats
+  window.alert("Sucess! You have been added to this ride.");
 }
