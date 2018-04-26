@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+     <meta http-equiv="cache-control" content="no-cache"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -11,7 +12,24 @@
 
     <!-- Custom styles for this template -->
     <link href="home.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="home.js"></script>
+    <script>
+        $(document).ready(function(){
+                $("#my-cancel-btn").click(function(){ 
+                    console.log("The paragraph was clicked."); 
+                    $("#match-form").hide();
+                    $("#find-form").show();
+                });
+
+                $("#find-a-ride-btn").click(function(){
+                   // document.getElementById('form02').style.display='block';
+                   console.log("hello");
+                   $("#form02").css('display','block');
+                   $("#find-form").trigger("reset");
+                });
+        });
+    </script>
 </head>
 
 <body>
@@ -112,7 +130,7 @@
 
             <!--↓↓↓ here is the form after you press find a ride (update once database is set up)-->
 
-            <a onclick="document.getElementById('form02').style.display='block'" class="btn btn-primary my-2">Find a
+            <a class="btn btn-primary my-2" id="find-a-ride-btn">Find a
                 ride</a>
 
             <div id="form02" class="modal">
@@ -142,14 +160,14 @@
                 </form>
                 <form class="modal-content", style="display:none;", id="match-form">
                     <div class="container">
-                        <p>Rides Found:</p>
+                        <p id="user-prompt">Rides Found:</p>
                         <hr>
                         <select id="match-list" size="3" required>
                            <!-- matched rides will go in here -->
                        </select>
                        <div class="clearfix">
                             <button type="button" onclick="sign()" type="button" class="signupbtn">Sign up</button>
-                            <button type="button" onclick="document.getElementById('form02').style.display='none'" class="cancelbtn">Cancel</button>
+                            <button type="button" class="cancelbtn" id="my-cancel-btn">Cancel</button>
                        </div>
                     </div>
                 </form>

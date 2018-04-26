@@ -46,16 +46,19 @@ function signUpRide() {
    var i = 0;
    
    database.orderByChild("searchee").equalTo(searcher).on("value", function(snapshot) {
-      snapshot.forEach(function(data) {
-        console.log("Ride found: leaving" + data.val().departure + " going to " + data.val().destination + " at " + data.val().time);
-        //var id = "ride_no_" + i;                          // sets id to ride_no_#
-        var list = document.getElementById("match-list"); // list of corresponding rides
-        var entry = document.createElement("option");     // creates element for that option
-        //entry.setAttribute("id", id);                     // id corresponds with entry now
-        ridesByID[i] = data.key;                         //maps ride key to ridesByID array
-        i++;
-        entry.appendChild(document.createTextNode("time: " + data.val().time)); // puts text in entry
-        list.appendChild(entry);                          // adds entry to list
+    var list = document.getElementById("match-list"); // list of corresponding rides
+    list.innerHTML = "";
+    snapshot.forEach(function(data) {
+       //var id = "ride_no_" + i;                          // sets id to ride_no_#
+        if (data.val().numberSeats > 0) {
+          console.log("Ride found: leaving" + data.val().departure + " going to " + data.val().destination + " at " + data.val().time);
+          var entry = document.createElement("option");     // creates element for that option
+            //entry.setAttribute("id", id);                     // id corresponds with entry now
+            ridesByID[i] = data.key;                         //maps ride key to ridesByID array
+            i++;
+            entry.appendChild(document.createTextNode("time: " + data.val().time)); // puts text in entry
+            list.appendChild(entry);                          // adds entry to list
+        }
       });
    }); 
 }
