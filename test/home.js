@@ -70,15 +70,28 @@ function sign() {
   var selected = document.getElementById("match-list");
   //grabs ride key from selected item
   var ind = selected.selectedIndex;
-  console.log(ridesByID[ind]);  
+  //console.log(ridesByID[ind]);  
   //add user to array of passengers for that respective ride
   var user = firebase.auth().currentUser;
   var userID = user.uid;
+  console.log(userID);
   var myDB = firebase.database().ref();
   var passengers = myDB.child("rides/"+ridesByID[ind]+"/passengers");
-  //console.log("rides/"+ridesByID[ind]+"/passengers");
-  passengers.update({
-    userID : true
+  //var noSeats = myDB.child("rides/"+ridesByID[ind]+"/numberSeats").val();
+  //noSeats = noSeats-1;
+  var dec;
+  var ref = myDB.child("rides/"+ridesByID[ind]);
+  ref.once("value", function(data){
+    var num = data.val().numberSeats;
+    console.log("old noSeats: "+num);
+    dec = num-1;
+    //myDB.child("rides/"+ridesByID[ind]+"/numberSeats").update(dec);
+    //data.val().numberSeats = dec;
+    ref.update({numberSeats: dec});
   });
+  passengers.update({
+    [userID] : true
+  });
+  console.log("added to passenger list");
   //TODO: decrement # of seats
 }
