@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>Find a Ride</title>
-
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="col-sm-8 col-md-7 py-4">
                     <h4 class="text-white">About</h4>
-                    <p class="text-muted">This can be the description</p>
+                    <p class="text-muted">Created for CS252 at Purdue University</p>
                 </div>
                 <div class="col-sm-3 offset-md-1 py-4">
                     <h4 class="text-white">Contact</h4>
@@ -60,7 +60,7 @@
     <div class="navbar navbar-dark bg-dark box-shadow">
         <div class="container d-flex justify-content-between">
             <a href="#" class="navbar-brand d-flex align-items-center">
-                <strong>Find a Ride</strong>
+                <strong style="font-family: 'Nanum Gothic', serif;">Find a Ride</strong>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
                     aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,8 +74,8 @@
 
     <section class="jumbotron text-center">
         <div class="container">
-            <h1 class="jumbotron-heading">Find a ride easily</h1>
-            <p class="lead text-muted">You can easily find a ride with our app anywhere.</p>
+            <h1 class="jumbotron-heading" style="font-family: 'Nanum Gothic', serif;">Let us get you where you need to go.</h1>
+            <p class="lead text-muted" style="font-family: 'Nanum Gothic', serif;">Select "offer a ride" to start a new carpool, or "find a ride" to search for an already existing one.</p>
 
             <!--here are two buttons-->
 
@@ -88,7 +88,11 @@
                       title="Close Modal">&times;</span>
                 <form class="modal-content">  <!-- ←←← page after you submit the form (removed = /action-page.php)-->
                     <div class="container">
-                        <p>Please fill out this form to offer a ride.</p>
+                        <h5>Please fill out this form to offer a ride.</h5>
+                        <p>For carpools departing from Purdue, enter "Purdue" as the departure and the destination in the format "City, State".
+                            For carpools going to Purdue, enter the departure in the format "City, State" and the destination as "Purdue". For example,
+                            a carpool going from Chicago to Purdue would have the departure as "Chicago, IL" and the destination as "Purdue".
+                        </p>
                         <hr>
                        <!-- <label for="name01"><b>Name:</b></label>
                         <input type="text" placeholder="Enter your name" id="name01" required>
@@ -138,7 +142,10 @@
                       title="Close Modal">&times;</span>
                 <form class="modal-content unhidden" id="find-form">  <!-- ←←← page after you submit the form -->
                     <div class="container">
-                        <p>Please fill out this form to find a ride.</p>
+                        <h5>Please fill out this form to find a ride.</h5>
+                        <p>For carpools departing from Purdue, enter "Purdue" as the departure and the destination in the format "City, State".
+                           For carpools going to Purdue, enter the departure in the format "City, State" and the destination as "Purdue". For example,
+                           a carpool going from Chicago to Purdue would have the departure as "Chicago, IL" and the destination as "Purdue".</p>
                         <hr>
 
                         <label for="from"><b>Departure</b></label>
@@ -166,8 +173,8 @@
                            <!-- matched rides will go in here -->
                        </select>
                        <div class="clearfix">
-                            <button type="button" onclick="sign()" type="button" class="signupbtn">Sign up</button>
                             <button type="button" class="cancelbtn" id="my-cancel-btn">Cancel</button>
+                            <button type="button" onclick="sign()" type="button" class="signupbtn">Sign up</button>
                        </div>
                     </div>
                 </form>
