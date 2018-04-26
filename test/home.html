@@ -4,7 +4,7 @@
      <meta http-equiv="cache-control" content="no-cache"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="icon" href="caricon.svg">
     <title>Find a Ride</title>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
     <!-- Bootstrap core CSS -->
@@ -17,7 +17,7 @@
     <script>
         $(document).ready(function(){
                 $("#my-cancel-btn").click(function(){ 
-                    console.log("The paragraph was clicked."); 
+                    console.log("The button was clicked."); 
                     $("#match-form").hide();
                     $("#find-form").show();
                 });
@@ -27,6 +27,17 @@
                    console.log("hello");
                    $("#form02").css('display','block');
                    $("#find-form").trigger("reset");
+                });
+
+                $("#my-offer-btn").click(function(){
+                    //onclick="document.getElementById('form01').style.display='none'"
+                   // console.log("clicked");
+                    $("#form01").css('display','block');
+                    $("#offer-form").trigger("reset");
+                });
+
+                $("#my-offer-cancel-btn").click(function(){
+                    $("#form01").hide();
                 });
         });
     </script>
@@ -81,12 +92,12 @@
 
             <!--↓↓↓ here is the form after you press offer a ride-->
 
-            <a onclick="document.getElementById('form01').style.display='block'" class="btn btn-primary my-2">Offer a
+            <a onclick="document.getElementById('form01').style.display='block'" class="btn btn-primary my-2" id="my-offer-btn">Offer a
                 ride</a>
             <div id="form01" class="modal">
                 <span onclick="document.getElementById('form01').style.display='none'" class="close"
                       title="Close Modal">&times;</span>
-                <form class="modal-content">  <!-- ←←← page after you submit the form (removed = /action-page.php)-->
+                <form class="modal-content" id="offer-form">  <!-- ←←← page after you submit the form (removed = /action-page.php)-->
                     <div class="container">
                         <h5>Please fill out this form to offer a ride.</h5>
                         <p>For carpools departing from Purdue, enter "Purdue" as the departure and the destination in the format "City, State".
@@ -123,9 +134,7 @@
                           </select>
 
                         <div class="clearfix">
-                            <button type="button" onclick="document.getElementById('form01').style.display='none'"
-                                    class="cancelbtn">Cancel
-                            </button>
+                            <button type="button" class="cancelbtn" id="my-offer-cancel-btn">Cancel</button>
                             <button onclick="submitRide()" type="button" class="signupbtn" >Submit</button>
                         </div>
                     </div>

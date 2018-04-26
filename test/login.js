@@ -1,12 +1,13 @@
 function loginUser() {
   var userEmail = document.getElementById("email").value;
   var userPass = document.getElementById("pwd").value;
-  
+
   firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
     var errorCode = error.code;
     var errorMessage = error.message;
     window.alert("Error: " + errorMessage);
   });
+
 }
 
 function changePage() {
